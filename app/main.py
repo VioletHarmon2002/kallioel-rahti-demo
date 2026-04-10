@@ -19,6 +19,8 @@ app.add_middleware(
 my_name = "Liza"
 
 
+
+
 # main route
 @app.get("/")
 def read_root():
@@ -33,6 +35,26 @@ def api_ip(request: Request):
 @app.get("/ip", response_class=HTMLResponse)
 def html_ip(request: Request):
     return f"<html><body>Your IP is: {request.client.host}</body></html>"
+
+@app.get("/users", response_class = HTMLResponse) 
+def html_users(request: Request):
+    users =  [
+        {"id": 1, "name": "living room", "color": "blue", "floor": 1},
+        {"id": 2, "name": "kitchen", "color": "red", "floor": 1},
+        {"id": 3, "name": "bedroom", "color": "green", "floor": 2}  
+    ]
+    html = "<html><body><h1>Rooms</h1><ul>"
+
+    for user in users:
+        html += f"<li>ID: {user['id']}, Name: {user['name']}, Color: {user['color']}, Floor: {user['floor']}</li>"
+
+        html += "</ul></body></html>"
+
+
+
+
+    
+
 
 
 
