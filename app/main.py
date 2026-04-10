@@ -47,7 +47,7 @@ def html_users(request: Request):
     html = "<html><body><h1>Rooms</h1><ul>"
 
     for user in users:
-        html += f"<li>{user['name']}</li>"
+        html += f"<li>ID: {user["id"]}, Name: {user["name"]}, Color: {user['color']}, Floor: {user['floor']}</li>"
 
     html += "</ul></body></html>"   
 
