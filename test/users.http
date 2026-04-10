@@ -1,1 +1,4 @@
-@apiUrl = 
+@apiUrl = https://kallioel-rahti-demo-git-web-communication-project.2.rahtiapp.fi
+
+GET {{@apiUrl}}/users
+
