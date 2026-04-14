@@ -39,12 +39,17 @@ def html_ip(request: Request):
 @app.get("/rooms")
 def get_rooms():
     rooms = [
-        {"id": 1, "name": "living room", "color": "blue", "floor": 1},
-        {"id": 2, "name": "kitchen", "color": "red", "floor": 1},
-        {"id": 3, "name": "bedroom", "color": "green", "floor": 2}
+        {"name": "living room", "color": "blue", "floor": 1},
+        {"name": "kitchen", "color": "red", "floor": 1},
+        {"name": "bedroom", "color": "green", "floor": 2}
     ]
     return rooms                
 
+
+#create booking route
+@app.post("/bookings")
+def create_booking():
+    return {"msg": "Booking created successfully"}
 
 
 

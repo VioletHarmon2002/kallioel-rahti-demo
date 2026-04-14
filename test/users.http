@@ -1,4 +1,20 @@
-@apiUrl = https://kallioel-rahti-demo-git-web-communication-project.2.rahtiapp.fi
+@apiUrl = http://127.0.0.1:8081
 
-GET {{apiUrl}}/users
+GET {{apiUrl}}/rooms
+
+
+###create booking
+
+
+POST {{apiUrl}}/bookings
+Content-Type: application/json
+
+{
+    "start_time": "2022-01-01T10:00:00",
+    "end_time": "2022-01-01T12:00:00",
+    "room_id": 1
+    
+
+}
+
 
