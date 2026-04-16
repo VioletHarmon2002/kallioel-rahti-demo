@@ -12,13 +12,10 @@ def create_schema():
             id SERIAL PRIMARY KEY,
             room_number INTEGER NOT NULL,
             created_at TIMESTAMP NOT NULL DEFAULT now()
-            
+        );
+        """)
 
-
-
-        ):
-        -- Add other tables if needed. 
-        ALTER TABLE rooms ADD COLUMN IF NOT EXISTS room_type VARCHAR();
-
-
+        cur.execute("""
+        ALTER TABLE rooms 
+        ADD COLUMN IF NOT EXISTS room_type VARCHAR;
         """)
