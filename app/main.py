@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
+from app.db import get_conn, create_schema
+
 
 app = FastAPI()
 
@@ -15,6 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+create_schema()  # create schema if not exists
+
 
 my_name = "Liza"
 
@@ -24,7 +28,11 @@ my_name = "Liza"
 # main route
 @app.get("/")
 def read_root():
-    return { "msg": f"Hello, {my_name}" }
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute("SELECT 'hello postgres' " )
+        result = cur.fetchone()
+
+    return { "msg": f"Hello, {my_name}", "db_status" : result}
 
 # what is my ip route
 @app.get("/api/ip")
