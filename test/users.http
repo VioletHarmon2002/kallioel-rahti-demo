@@ -10,9 +10,10 @@ POST {{apiUrl}}/bookings
 Content-Type: application/json
 
 {
-    "start_time": "2022-01-01T10:00:00",
-    "end_time": "2022-01-01T12:00:00",
-    "room_id": 1
+    
+    "room_id": 2,
+    "guest_id": 3
+
     
 
 }
