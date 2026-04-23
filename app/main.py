@@ -77,6 +77,24 @@ def get_rooms():
     return rooms
 
 
+#get one room 
+
+@app.get("/rooms/{room_id}")
+def get_room(room_id: int):
+    with get_conn() as conn, conn.cursor() as cur:
+        cur.execute("""
+            SELECT id, room_number, room_type, price, created_at
+            FROM rooms
+            WHERE id = %s
+        """, [room_id])
+
+        room = cur.fetchone()
+
+    if room is None:
+        return {"error": "Room not found"}
+
+    return room
+
 @app.post("/bookings")
 def create_booking(booking: Booking):
     with get_conn() as conn, conn.cursor() as cur:

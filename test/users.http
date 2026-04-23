@@ -2,6 +2,11 @@
 
 GET {{apiUrl}}/rooms
 
+###
+
+
+GET {{apiUrl}}/rooms/1
+
 
 ###create booking
 
@@ -11,8 +16,8 @@ Content-Type: application/json
 
 {
     
-    "room_id": 2,
-    "guest_id": 3
+    "room_id": 1,
+    "guest_id": 2
 
     
 
